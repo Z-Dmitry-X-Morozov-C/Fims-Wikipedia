@@ -63,7 +63,7 @@ h1 {
   display: inline-block;
   width: 21px;
   height: 21px;
-  background-image: url(../asset/img/Path.svg);
+  background-image: url(../assets/img/Path.svg);
   background-size: contain;
   position: absolute;
   left: 50%;

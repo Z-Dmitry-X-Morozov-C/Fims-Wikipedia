@@ -13,8 +13,5 @@ import Content from "~/components/Content.vue";
 </script>
 
 <style scoped>
-main {
-  width: 80%;
-  margin: 40px auto auto auto;
-}
+
 </style>

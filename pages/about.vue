@@ -1,5 +1,9 @@
 <template>
-  <div></div>
+  <Header />
+  <main>
+    <BackBtn />
+    <PreloadAn />
+  </main>
 </template>
 
 <script setup></script>

@@ -1,19 +1,21 @@
 <!-- реализовать карточки с фильмов внутри этого компонента -->
 <template>
-    <div class="content-box">
-
-    </div>
+  <div class="content-box">
+    <FilmCard />
+    <FilmCard />
+  </div>
 </template>
 
 <script setup>
-
+import FilmCard from "./card/FilmCard.vue";
 </script>
 
 <style scoped>
-    .content-box {
-        width: 100%;
-        margin-top: 31px;
-        height: 400px;
-        background: #4D4747;
-    }
+.content-box {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 31px;
+  gap: 24px;
+}
 </style>
