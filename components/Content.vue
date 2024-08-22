@@ -2,7 +2,6 @@
 <template>
   <div class="content-box">
     <FilmCard />
-    <FilmCard />
   </div>
 </template>
 

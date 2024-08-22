@@ -6,34 +6,39 @@
     </div>
     <div class="conteiner-card-text">
       <div class="conteiner-card-text__info">
-        <h1>Гамильтон</h1>
-        <p :style="{ marginTop: `12px` }">2015, мюзикл</p>
-        <p :style="{ marginTop: `8px` }">РЕЖИССЕР: ТОМАС КАИЛ</p>
-        <p :style="{ marginTop: `10px` }">
+        <h1>{{ movie.title }}</h1>
+        <p class="conteiner-card-text__info_year-genres">
+          {{ movie.year }} {{ movie.genres }}
+        </p>
+        <p class="conteiner-card-text__info_director">
+          РЕЖИССЕР:{{ movie.directors }}
+        </p>
+        <p class="conteiner-card-text__info_actors">
           АКТЕРЫ:
           <span>
-            Лин-Мануэль Миранда, Лесли Одом мл., Давид Диггс, Филлипа Су, Рене
-            Голдсберри, Окьерете Онаодован, Энтони Рамос, Джонатан Грофф,
-            Кристофер Нил Джексон, Жасмин Сепас Джонс
+            {{ movie.description }}
           </span>
         </p>
       </div>
       <div class="conteiner-card-text__desc">
-        <p :style="{ marginTop: `16px` }">
-          Бухгалтер Энди Дюфрейн обвинён в убийстве собственной жены и её
-          любовника. Оказавшись в тюрьме под названием Шоушенк, он сталкивается
-          с жестокостью и беззаконием, царящими по обе стороны решётки. Каждый,
-          кто попадает в эти стены, становится их рабом до конца жизни. Но Энди,
-          обладающий живым умом и доброй душой, находит подход как к
-          заключённым, так и к охранникам, добиваясь их особого к себе
-          расположения.
-        </p>
+        <p>{{ movie.description }}</p>
       </div>
     </div>
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { useCardStore } from "../../store/CardStore.js";
+
+
+const movies = reactive({
+  useCardStore,
+});
+
+const movie = computed(() => {
+  return movies;
+});
+</script>
 
 <style scoped>
 .conteiner-card {
@@ -69,10 +74,22 @@ p {
 
 .conteiner-card-text__desc > p {
   color: white;
-  font-size: 16px5;
+  margin-top: 16px;
   display: -webkit-box;
   overflow: hidden;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
+}
+
+.conteiner-card-text__info_year-genres {
+  margin-top: 12px;
+}
+
+.conteiner-card-text__info_director {
+  margin-top: 8px;
+}
+
+.conteiner-card-text__info_actors {
+  margin-top: 10px;
 }
 </style>

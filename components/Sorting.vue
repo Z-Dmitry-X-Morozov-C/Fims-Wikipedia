@@ -3,12 +3,22 @@
     <h1>Фильмы</h1>
     <div class="sorting-wrapper__checkboxes">
       <label class="text-form">
-        <input type="checkbox" id="sortByName" class="real-checkbox" />
+        <input
+          type="radio"
+          id="sortByName"
+          class="real-checkbox"
+          name="drone"
+        />
         <span class="custom-checkbox"></span>
         Отсортировать по названию
       </label>
       <label class="text-form">
-        <input type="checkbox" id="sortByYear" class="real-checkbox" />
+        <input
+          type="radio"
+          id="sortByYear"
+          class="real-checkbox"
+          name="drone"
+        />
         <span class="custom-checkbox"></span>
         Отсортировать по году
       </label>
