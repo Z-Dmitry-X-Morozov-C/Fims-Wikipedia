@@ -28,28 +28,6 @@
 </template>
 
 <script setup>
-// import { useFilmStore } from "../../store/FilmStore";
-// import axios from "axios";
-// import { onMounted } from "vue";
-
-// const movieStore = useFilmStore();
-
-// const movies = computed(() => movieStore.movies);
-
-// const fetchMovies = async () => {
-//   try {
-//     const response = await axios.get(
-//       "https://mashroom-movies-api.netlify.app/api/movies"
-//     );
-//     movieStore.setMovies(response.data);
-//     console.log("успех");
-//   } catch (error) {
-//     console.error("Error fetching:", error);
-//   }
-// };
-
-// onMounted(fetchMovies);
-
 import { defineProps } from 'vue';
 
 const props = defineProps({
