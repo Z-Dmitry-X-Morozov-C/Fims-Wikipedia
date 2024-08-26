@@ -16,27 +16,47 @@
         <p class="conteiner-card-text__info_actors">
           АКТЕРЫ:
           <span>
-            {{ movie.description }}
+            {{ movie.actors }}
           </span>
         </p>
       </div>
       <div class="conteiner-card-text__desc">
-        <p>{{ movie.description }}</p>
+        <p>{{movie.description}}</p>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { useCardStore } from "../../store/CardStore.js";
+// import { useFilmStore } from "../../store/FilmStore";
+// import axios from "axios";
+// import { onMounted } from "vue";
 
+// const movieStore = useFilmStore();
 
-const movies = reactive({
-  useCardStore,
-});
+// const movies = computed(() => movieStore.movies);
 
-const movie = computed(() => {
-  return movies;
+// const fetchMovies = async () => {
+//   try {
+//     const response = await axios.get(
+//       "https://mashroom-movies-api.netlify.app/api/movies"
+//     );
+//     movieStore.setMovies(response.data);
+//     console.log("успех");
+//   } catch (error) {
+//     console.error("Error fetching:", error);
+//   }
+// };
+
+// onMounted(fetchMovies);
+
+import { defineProps } from 'vue';
+
+const props = defineProps({
+  movie: {
+    type: Object,
+    required: true,
+  }
 });
 </script>
 
