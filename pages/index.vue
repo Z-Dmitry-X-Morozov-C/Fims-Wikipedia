@@ -3,7 +3,6 @@
   <main>
     <Sorting />
     <Content />
-    <div></div>
   </main>
 </template>
 

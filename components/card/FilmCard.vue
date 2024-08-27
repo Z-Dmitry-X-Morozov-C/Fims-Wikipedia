@@ -21,21 +21,24 @@
         </p>
       </div>
       <div class="conteiner-card-text__desc">
-        <p>{{movie.description}}</p>
+        <p>{{ movie.description }}</p>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { defineProps } from 'vue';
+
+import { defineProps } from "vue";
 
 const props = defineProps({
   movie: {
     type: Object,
     required: true,
-  }
+  },
 });
+
+const actors = computed(() => movie.actors);
 </script>
 
 <style scoped>
