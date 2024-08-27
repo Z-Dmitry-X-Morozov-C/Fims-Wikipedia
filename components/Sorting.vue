@@ -1,3 +1,4 @@
+<!-- Двусторонее привязывание (viewModel) -->
 <template>
   <form class="sorting-wrapper">
     <h1>Фильмы</h1>

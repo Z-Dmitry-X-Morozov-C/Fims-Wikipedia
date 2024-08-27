@@ -2,12 +2,12 @@ import { defineStore } from "pinia";
 import { ref } from "vue";
 
 export const useFilmStore = defineStore("filmStore", () => {
-  const movies = ref([]);
+  const movies = ref();
 
-  const setMovies = (value) => {
+  function setMovies(value) {
     movies.value = value;
-  };
+  }
 
-
-  return { movies, setMovies};
+  const getMovies = computed(() => movies.value);
+  return { movies, setMovies, getMovies };
 });
