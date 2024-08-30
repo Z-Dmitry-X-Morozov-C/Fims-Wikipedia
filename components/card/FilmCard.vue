@@ -2,26 +2,38 @@
 <template>
   <div class="conteiner-card">
     <div class="conteiner-card__img">
-      <img class="img" alt="poster" src="/assets/img/DQXQqTfX4AEHXGo 1.png" />
+      <img class="img" alt="poster" :src="poster" />
     </div>
     <div class="conteiner-card-text">
       <div class="conteiner-card-text__info">
         <h1>{{ movie.title }}</h1>
-        <p class="conteiner-card-text__info_year-genres">
-          {{ movie.year }} {{ movie.genres }}
+        <div class="conteiner-card-text__info_year-genres">
+          <p>
+            {{ movie.year + ", " }}
+          </p>
+          <p>
+            {{ movie.genres.join(", ") }}
+          </p>
+        </div>
+
+        <p></p>
+        <p v-if="movie.directors" class="conteiner-card-text__info_director">
+          {{ " РЕЖИССЕР: " + movie.directors }}
         </p>
-        <p class="conteiner-card-text__info_director">
-          РЕЖИССЕР:{{ movie.directors }}
+        <p v-else="movie.directors" class="conteiner-card-text__info_director">
+          {{ " РЕЖИССЕР: " + "Нет данных" }}
         </p>
+
         <p class="conteiner-card-text__info_actors">
           АКТЕРЫ:
           <span>
-            {{ movie.actors }}
+            {{ movie?.actors?.join(", ") }}
           </span>
         </p>
       </div>
       <div class="conteiner-card-text__desc">
-        <p>{{ movie.description }}</p>
+        <p v-if="movie.description">{{ movie.description }}</p>
+        <p v-else="movie.description">Без описания</p>
       </div>
     </div>
   </div>
@@ -38,10 +50,20 @@ const props = defineProps({
   },
 });
 
-const actors = computed(() => movie.actors);
+const posterFetched = props.movie.poster;
+const posterURL = "https://kinopoiskapiunofficial.tech/images/posters/kp/";
+
+const posterMatch = posterFetched.match(/\/posters\/(\d+)\.jpg/);
+const posterIndex = posterMatch[1];
+const poster = posterURL + posterIndex + ".jpg";
+
 </script>
 
 <style scoped>
+.img {
+  max-width: 112px;
+}
+
 .conteiner-card {
   display: flex;
   background-color: #4d4747;
@@ -83,6 +105,8 @@ p {
 }
 
 .conteiner-card-text__info_year-genres {
+  display: flex;
+  gap: 4px;
   margin-top: 12px;
 }
 

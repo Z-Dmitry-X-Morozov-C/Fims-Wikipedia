@@ -1,22 +1,27 @@
 <template>
   <div class="preloader">
-    <div class="preload__red"></div>
-    <div class="preload__black"></div>
+    <div>
+      <div class="preload__red"></div>
+      <div class="preload__black"></div>
+    </div>
   </div>
 </template>
 
 <script setup></script>
 
 <style scoped>
+
 .preloader {
-  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-top: 218px;  
 }
 
 .preload__black {
   position: absolute;
   border: 3px solid transparent;
   border-radius: 50% 50%;
-  border-right: 3px solid black;
+  border-right: 3px solid rgb(0, 0, 0);
   border-bottom: 3px solid black;
   width: 98px;
   height: 98px;
@@ -41,7 +46,7 @@
   }
 
   to {
-    transform: rotate(360deg);
+    transform: rotate(-360deg);
   }
 }
 
@@ -51,7 +56,7 @@
   }
 
   to {
-    transform: rotate(-360deg);
+    transform: rotate(360deg);
   }
 }
 </style>
