@@ -44,11 +44,11 @@ h1 {
 .text-form {
   color: #c4c4c4;
   font-size: 18px;
+  cursor: pointer;
 }
 
 .sorting-wrapper__checkboxes {
   display: flex;
-  cursor: pointer;
   gap: 32px;
 }
 

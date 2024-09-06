@@ -3,11 +3,11 @@
     <PreloadAn v-if="loading" />
   </div>
   <div class="content-box">
-    <FilmCard
-      v-for="(movie, index) in moviesArr?.data"
-      :key="index"
-      :movie="movie"
-    />
+      <FilmCard
+        v-for="(movie, index) in moviesArr?.data"
+        :key="index"
+        :movie="movie"
+      />
   </div>
 </template>
 
@@ -18,9 +18,9 @@ import { useFilmStore } from "../../store/FilmStore";
 import { onMounted, ref } from "vue";
 
 const loading = ref(true);
+const responseData = ref();
 const filmStore = useFilmStore();
 const moviesArr = computed(() => filmStore.movies);
-const responseData = ref();
 
 async function fetchMovies() {
   try {
