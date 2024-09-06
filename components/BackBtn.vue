@@ -1,9 +1,11 @@
 <template>
   <div>
-    <button class="btn">
-      <img src="/assets/img/arrow_back_ios-24px.svg" alt="arrow" />
-      <span>Назад к списку</span>
-    </button>
+    <NuxtLink to="/">
+      <button class="btn">
+        <img src="/assets/img/arrow_back_ios-24px.svg" alt="arrow" />
+        <span>Назад к списку</span>
+      </button>
+    </NuxtLink>
     <hr />
   </div>
 </template>
@@ -20,13 +22,13 @@ div {
 .btn {
   display: flex;
   border: none;
-  font: inherit;
   padding: 0;
   background-color: transparent;
   cursor: pointer;
 }
 
 span {
+  text-decoration: none;
   color: #ff5252c7;
   font-size: 20px;
 }
