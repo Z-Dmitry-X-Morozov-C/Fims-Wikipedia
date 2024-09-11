@@ -15,7 +15,8 @@ const { id } = useRoute().params;
 const uri = "https://mashroom-movies-api.netlify.app/api/movie/" + id
 
 const {data: movie} = await useFetch(uri, {key: id})
-console.log(movie);
+console.log(movie.value.data);
+
 </script>
 
 <style scoped></style>

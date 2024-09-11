@@ -41,7 +41,6 @@
 </template>
 
 <script setup>
-import { defineProps } from "vue";
 const { movie } = defineProps(["movie"]);
 
 const posterFetched = { movie }.movie.poster;

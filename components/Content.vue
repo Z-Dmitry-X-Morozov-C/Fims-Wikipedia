@@ -1,13 +1,18 @@
 <template>
+  <Sorting
+    v-if="responseData"
+    :movie="responseData"
+    @send-sort-by="sentedEmit"
+  />
   <div>
     <PreloadAn v-if="loading" />
   </div>
-  <div class="content-box">
-      <FilmCard
-        v-for="(movie, index) in moviesArr?.data"
-        :key="index"
-        :movie="movie"
-      />
+  <div if="!loading" class="content-box">
+    <FilmCard
+      v-for="(movie, index) in responseData?.data"
+      :key="index"
+      :movie="movie"
+    />
   </div>
 </template>
 
@@ -20,7 +25,6 @@ import { onMounted, ref } from "vue";
 const loading = ref(true);
 const responseData = ref();
 const filmStore = useFilmStore();
-const moviesArr = computed(() => filmStore.movies);
 
 async function fetchMovies() {
   try {
@@ -29,6 +33,7 @@ async function fetchMovies() {
     );
     responseData.value = await data.json();
     filmStore.setMovies(responseData.value);
+    // console.log(responseData.value);
   } catch (error) {
     console.error("Error fetching:", error);
   } finally {
@@ -37,6 +42,11 @@ async function fetchMovies() {
 }
 
 onMounted(fetchMovies);
+
+function sentedEmit(a) {
+  responseData.value = a;
+  console.log(responseData);
+}
 </script>
 
 <style scoped>
