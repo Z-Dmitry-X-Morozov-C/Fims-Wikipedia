@@ -43,7 +43,6 @@
 <script setup>
 const { movie } = defineProps(["movie"]);
 
-
 const posterFetched = { movie }.movie.poster;
 const posterURL = "https://kinopoiskapiunofficial.tech/images/posters/kp/";
 

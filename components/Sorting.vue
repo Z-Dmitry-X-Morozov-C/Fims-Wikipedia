@@ -5,21 +5,17 @@
     <div class="sorting-wrapper__checkboxes">
       <label class="text-form">
         <input
+          @click="titlesNoSorted()"
           type="radio"
-          id="sortByName"
           class="real-checkbox"
           name="drone"
+          value="title"
         />
         <span class="custom-checkbox"></span>
         Отсортировать по названию
       </label>
       <label class="text-form">
-        <input
-          type="radio"
-          id="sortByYear"
-          class="real-checkbox"
-          name="drone"
-        />
+        <input type="radio" class="real-checkbox" name="drone" value="year" />
         <span class="custom-checkbox"></span>
         Отсортировать по году
       </label>
@@ -28,7 +24,19 @@
   </form>
 </template>
 
-<script setup></script>
+<script setup>
+const props = defineProps(["movie"]);
+const emit = defineEmits(["sendSortBy"]);
+
+const titlesNoSorted = () => {
+  props.movie.data.sort((a, b) => a.title.localeCompare(b.name));
+};
+
+const isTitlesSorted = () => {
+  emit("sendSortBy", titlesNoSorted());
+  console.log(titlesNoSorted());
+};
+</script>
 
 <style scoped>
 h1 {
